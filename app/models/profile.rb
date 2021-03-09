@@ -34,19 +34,6 @@ class Profile < ApplicationRecord
     dribbble_url
   ].freeze
 
-  # NOTE: @citizen428 This is a temporary mapping so we don't break DEV during
-  # profile migration/generalization work.
-  MAPPED_ATTRIBUTES = {
-    brand_color1: :bg_color_hex,
-    brand_color2: :text_color_hex,
-    display_email_on_profile: :email_public,
-    education: :education,
-    git_lab_url: :gitlab_url,
-    linked_in_url: :linkedin_url,
-    skills_languages: :mostly_work_with,
-    stack_overflow_url: :stackoverflow_url
-  }.with_indifferent_access.freeze
-
   # Generates typed accessors for all currently defined profile fields.
   def self.refresh_attributes!
     return if ENV["ENV_AVAILABLE"] == "false"
