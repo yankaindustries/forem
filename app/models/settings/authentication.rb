@@ -7,7 +7,7 @@ module Settings
     cache_prefix { "v1" }
 
     field :allow_email_password_login, type: :boolean, default: true
-    field :allow_email_password_registration, type: :boolean, default: false
+    field :allow_email_password_registration, type: :boolean, default: true
     field :allowed_registration_email_domains, type: :array, default: %w[], validates: {
       valid_domain_csv: true
     }
